@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="mainMenu">
+    <h1>Student Management System</h1>
+    <button onclick="showAdminLogin()">Admin</button>
+    <button onclick="showStudentLogin()">Student</button>
+</div>
+
+<!-- ADMIN LOGIN -->
+<div class="container hidden" id="adminLogin">
+    <h2>Admin Login</h2>
+    <p style="background: #e3f2fd; padding: 12px; border-radius: 8px; margin-bottom: 15px; color: #1976d2; font-size: 14px; text-align: left;">
+        <strong>Hint:</strong><br>
+        Username: <strong>prakash</strong><br>
+        Password: <strong>1234</strong>
+    </p>
+    <input id="adminUser" placeholder="Username">
+    <input id="adminPass" type="password" placeholder="Password">
+    <button onclick="adminLogin()">Login</button>
+    <button onclick="goHome()">Back</button>
+</div>
+
+<!-- STUDENT LOGIN -->
+<div class="container hidden" id="studentLogin">
+    <h2>Student Login</h2>
+    <p style="background: #f3e5f5; padding: 12px; border-radius: 8px; margin-bottom: 15px; color: #7b1fa2; font-size: 14px; text-align: left;">
+        <strong>Hint:</strong><br>
+        Default Name: <strong>Gangadhar</strong><br>
+        Default Password: <strong>123</strong><br>
+        <small style="color: #999;">Other Students: Sharuf, Vegesh, Kamran, Poorna (all password: 123)</small>
+    </p>
+    <input id="stuName" placeholder="Name">
+    <input id="stuPass" type="password" placeholder="Password">
+    <button onclick="studentLogin()">Login</button>
+    <button onclick="goHome()">Back</button>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="container hidden" id="adminPanel">
+    <h2>Admin Dashboard</h2>
+
+    <button onclick="showAddForm()">Add Student</button>
+    <button onclick="showDeleteForm()">Delete Student</button>
+    <button onclick="showSearchForm()">Search Student</button>
+    <button onclick="showViewAllPage()">View All</button>
+    <button onclick="showAttendanceForm()">Attendance Entry</button>
+    <button onclick="showMarksForm()">Add Marks</button>
+    <button onclick="logout()">Logout</button>
+
+    <div id="output"></div>
+</div>
+
+<!-- ADD STUDENT FORM -->
+<div class="container hidden" id="addForm">
+    <h2>Add Student</h2>
+
+    <input id="addName" placeholder="Name">
+    <input id="addPass" placeholder="Password">
+    <input id="addAge" placeholder="Age">
+    <input id="addID" placeholder="Student ID">
+    <input id="addCollege" placeholder="College">
+    <input id="addSection" placeholder="Section">
+    <input id="addGrade" placeholder="Grade (A/B/C...)">
+
+    <button onclick="addStudent()">Add</button>
+    <button onclick="adminMenu()">Back</button>
+</div>
+
+<!-- DELETE FORM -->
+<div class="container hidden" id="deleteForm">
+    <h2>Delete Student</h2>
+    <input id="deleteName" placeholder="Enter name">
+    <button onclick="deleteStudent()">Delete</button>
+    <button onclick="adminMenu()">Back</button>
+</div>
+
+<!-- SEARCH FORM -->
+<div class="container hidden" id="searchForm">
+    <h2>Search Student</h2>
+    <input id="searchName" placeholder="Enter name">
+    <button onclick="searchStudent()">Search</button>
+    <button onclick="adminMenu()">Back</button>
+</div>
+
+<!-- STUDENT DASHBOARD -->
+<div class="container hidden" id="studentPanel">
+    <h2>Your Details</h2>
+    <div id="studentDetails"></div>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<!-- VIEW ALL STUDENTS PAGE -->
+<div class="container hidden fullpage" id="viewAllPage">
+    <button class="back-btn" onclick="adminMenu()">← Back</button>
+    <h2>All Students</h2>
+    <div id="allStudentsTable"></div>
+</div>
+
+<!-- SEARCH RESULTS PAGE -->
+<div class="container hidden fullpage" id="searchResultPage">
+    <button class="back-btn" onclick="adminMenu()">← Back</button>
+    <h2>Search Results</h2>
+    <div id="searchResult"></div>
+</div>
+
+<!-- ATTENDANCE ENTRY PAGE -->
+<div class="container hidden fullpage" id="attendancePage">
+    <button class="back-btn" onclick="adminMenu()">← Back</button>
+    <h2>Attendance Entry</h2>
+    <p style="color: #666; margin-bottom: 20px;">Check students to add 5% attendance</p>
+    <div id="attendanceList"></div>
+    <button onclick="saveAttendance()" style="margin-top: 20px;">Save Attendance</button>
+</div>
+
+<!-- MARKS ENTRY PAGE -->
+<div class="container hidden fullpage" id="marksPage">
+    <button class="back-btn" onclick="adminMenu()">← Back</button>
+    <h2>Add Marks</h2>
+    <p style="color: #666; margin-bottom: 20px;">Enter marks for each student (out of 100)</p>
+    <div id="marksList"></div>
+    <button onclick="saveMarks()" style="margin-top: 20px;">Save Marks</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
